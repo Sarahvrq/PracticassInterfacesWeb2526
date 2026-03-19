@@ -1,0 +1,53 @@
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #feda4a;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flag {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #feda4a;
+}
+
+.name {
+  color: #feda4a;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.region {
+  color: #c9d1d9;
+  margin: 0.2rem 0;
+  text-align: center;
+}
+
+.button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1.2rem;
+  background-color: transparent;
+  border: 1px solid #feda4a;
+  color: #feda4a;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #feda4a;
+  color: #000000;
+}

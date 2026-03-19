@@ -1,0 +1,52 @@
+.containerDetalle {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border: 1px solid #feda4a;
+  border-radius: 8px;
+}
+
+.containerDetalle h1 {
+  color: #feda4a;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.containerDetalle img {
+  display: block;
+  width: 300px;
+  margin: 0 auto 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #feda4a;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.infoCard p {
+  color: #c9d1d9;
+  font-size: 1rem;
+}
+
+.botonVolver {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid #feda4a;
+  color: #feda4a;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.botonVolver:hover {
+  background-color: #feda4a;
+  color: #000000;
+}
