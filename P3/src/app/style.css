@@ -1,32 +1,19 @@
-
-
 body {
-  background-color: #408ed2;
-  background-image:
-    radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 3px),
-    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 2px),
-    radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 3px);
-  background-size:
-    550px 550px,
-    350px 350px,
-    250px 250px;
-  background-position:
-    0 0,
-    40px 60px,
-    130px 270px;
-  color: #ffffff;
+  background-color: #2B1810;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+  color: #F5EDD6;
   font-family: sans-serif;
   min-height: 100vh;
 }
 
 h1 {
-  color: #ffffff;
+  color: #F5EDD6;
   text-align: center;
   margin-top: 20px;
 }
 
 h2 {
-  color: #205d20;
+  color: #E8A04A;
   text-align: center;
 }
 

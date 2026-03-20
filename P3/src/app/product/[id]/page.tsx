@@ -1,23 +1,23 @@
 "use client";
-import { useParams, useRouter } from "next/navigation";
-import { Country } from "@/types";
-import { useState, useEffect } from "react";
-import "./page.css";
-import { getCountryByName } from "@/lib/api/product";
 
-const UnPais = () => {
+import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { Product } from "@/types/product";
+import { getProductById } from "@/lib/api/product";
+import "./page.css";
+
+const UnProducto = () => {
   const router = useRouter();
-  const { name } = useParams();
-  const [pais, setPais] = useState<Country | null>(null);
+  const { id } = useParams();
+
+  const [producto, setProducto] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [miError, setError] = useState("");
 
   useEffect(() => {
-    const nombreBuscado = decodeURIComponent(String(name));
-    getCountryByName(nombreBuscado)
+    getProductById(String(id))
       .then((res) => {
-        const data: Country[] = res.data;
-        setPais(data[0]);
+        setProducto(res.data);
       })
       .catch((e) => {
         setError(`Error cargando los datos: ${e.message}`);
@@ -25,46 +25,54 @@ const UnPais = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [name]);
+  }, [id]);
 
-  const idiomas = pais?.languages ? Object.values(pais.languages) : [];
-  const monedas = pais?.currencies
-    ? Object.values(pais.currencies).map((c) => c.name)
-    : [];
+  if (loading) return <h2>Loading...</h2>;
+  if (miError) return <h2>{miError}</h2>;
+  if (!producto) return null;
 
   return (
-    <div className="containerDetalle">
-      {loading && <h1>Loading...</h1>}
-      {miError && <h2>{miError}</h2>}
+    <div className="detalleContainer">
 
-      {pais && (
-        <>
-          <h1>{pais.name.common}</h1>
-          <img
-            src={pais.flags?.svg || pais.flags?.png}
-            alt={`Bandera de ${pais.name.common}`}
-          />
-          <div className="infoCard">
-            <p>Nombre oficial: {pais.name.official}</p>
-            <p>Capital: {pais.capital?.join(", ") ?? "-"}</p>
-            <p>Region: {pais.region}</p>
-            <p>Subregion: {pais.subregion ?? "-"}</p>
-            <p>Poblacion: {pais.population.toLocaleString("es-ES")} hab.</p>
-            <p>
-              Superficie:{" "}
-              {pais.area ? pais.area.toLocaleString("es-ES") + " km2" : "-"}
-            </p>
-            {monedas.length > 0 && <p>Moneda: {monedas.join(", ")}</p>}
-            {idiomas.length > 0 && <p>Idiomas: {idiomas.join(", ")}</p>}
-          </div>
-        </>
-      )}
-
-      <button className="botonVolver" onClick={() => router.push("/")}>
-        Volver
+      <button onClick={() => router.back()} className="botonVolver">
+        ← Volver al catálogo
       </button>
+
+      <h1 className="detalleTitle">{producto.title}</h1>
+      <p className="detalleMarca">{producto.brand} · {producto.category}</p>
+
+      <div className="galeria">
+        {producto.images.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            className="galeriaImg"
+          />
+        ))}
+      </div>
+
+      <p className="detalleDesc">{producto.description}</p>
+
+      <div className="infoBloque">
+        <span className="detallePrecio">{producto.price.toFixed(2)}€</span>
+        <span className={producto.stock < 10 ? "stockBajo" : "stockOk"}>
+          {producto.stock < 10
+            ? `⚠ Solo quedan ${producto.stock} unidades`
+            : `✓ En stock (${producto.stock} unidades)`}
+        </span>
+      </div>
+
+      <p className="detalleRating">
+        Valoración: {"⭐".repeat(Math.round(producto.rating))} ({producto.rating}/5)
+      </p>
+
+      <p className="detalleDims">
+        Peso: {producto.weight}kg · Dimensiones: {producto.dimensions.width} ×{" "}
+        {producto.dimensions.height} × {producto.dimensions.depth}
+      </p>
+
     </div>
   );
 };
 
-export default UnPais;
+export default UnProducto;

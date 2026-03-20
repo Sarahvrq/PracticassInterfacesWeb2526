@@ -5,10 +5,18 @@
 }
 
 .tituloPrincipal {
-  color: #feda4a;
+  color: #e8a04a;
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.5rem;
+}
+
+.subtitulo {
+  color: #e8a04a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 input {
@@ -18,7 +26,7 @@ input {
   font-size: 1rem;
   width: 300px;
   background-color: #1a1a1a;
-  border: 1px solid #feda4a;
+  border: 1px solid #e8a04a;
   border-radius: 8px;
   color: #ffffff;
   outline: none;
@@ -28,28 +36,19 @@ input::placeholder {
   color: #888;
 }
 
-.totalResultados {
+.contador {
   text-align: center;
   color: #c9d1d9;
   margin-bottom: 1.5rem;
 }
 
 .countriesContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 700px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .noResultados {
   color: #888;
   text-align: center;
-}
-.subtitulo {
-  color: #feda4a;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  font-weight: normal;
 }

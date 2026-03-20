@@ -1,45 +1,86 @@
-.containerDetalle {
+.detalleContainer {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
   background-color: #1a1a1a;
-  border: 1px solid #feda4a;
+  border: 1px solid #e8a04a;
   border-radius: 8px;
+  color: #f5edd6;
 }
 
-.containerDetalle h1 {
-  color: #feda4a;
+.detalleContainer h1 {
+  color: #e8a04a;
   text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.detalleMarca {
+  color: #9a8f7e;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.galeria {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.galeriaImg {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e8a04a;
+}
+
+.detalleDesc {
+  color: #c9d1d9;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.infoBloque {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-.containerDetalle img {
-  display: block;
-  width: 300px;
-  margin: 0 auto 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #feda4a;
+.detallePrecio {
+  color: #e8a04a;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.infoCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+.stockOk {
+  color: #4ade80;
 }
 
-.infoCard p {
+.stockBajo {
+  color: #f87171;
+}
+
+.detalleRating {
   color: #c9d1d9;
-  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.detalleDims {
+  color: #9a8f7e;
+  font-size: 0.9rem;
 }
 
 .botonVolver {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   padding: 0.5rem 1.5rem;
   background-color: transparent;
-  border: 1px solid #feda4a;
-  color: #feda4a;
+  border: 1px solid #e8a04a;
+  color: #e8a04a;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -47,6 +88,6 @@
 }
 
 .botonVolver:hover {
-  background-color: #feda4a;
-  color: #000000;
+  background-color: #e8a04a;
+  color: #000;
 }
