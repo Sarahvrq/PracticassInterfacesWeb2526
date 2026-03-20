@@ -3,23 +3,24 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import "./page.css";
-import { Country } from "@/types";
-import { CountryCajita } from "@/components/product/productInfo";
-import { getAllCountries } from "@/lib/api/product";
+import { Product } from "@/types/product";
+import { ProductCajita } from "@/components/product/productInfo";
+import { SectionContainer } from "@/components/SectionContainer/sectionInfo";
+import { getAllProducts } from "@/lib/api/product";
 
 const Main = () => {
-  const [search, setSearch] = useState("");
-  const [countries, setCountries] = useState<Country[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    getAllCountries()
+    getAllProducts()
       .then((res) => {
-        const sorted = res.data.sort((a: Country, b: Country) =>
-          a.name.common.localeCompare(b.name.common),
+        const sorted = res.data.products.sort((a: Product, b: Product) =>
+          a.title.localeCompare(b.title),
         );
-        setCountries(sorted);
+        setProducts(sorted);
       })
       .catch((e) => {
         setError(`Error cargando los datos: ${e.message}`);
@@ -29,32 +30,38 @@ const Main = () => {
       });
   }, []);
 
-  const filtrados = countries.filter((c) =>
-    c.name.common.toLowerCase().includes(search.toLowerCase()),
+  const filtrados = products.filter((p) =>
+    p.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
     <div className="mainContainer">
-      <h1 className="tituloPrincipal">Explorador de Paises</h1>
-      <h2 className="subtitulo">Practica 2: Sarah Rojas</h2>
+      <h1 className="tituloPrincipal">Catálogo de Productos</h1>
+      <h2 className="subtitulo">Practica 3: Sarah Rojas</h2>
 
       <input
         type="text"
-        placeholder="Buscar país..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Buscar producto..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
 
       {loading && <h2>Loading...</h2>}
       {error && <h2>{error}</h2>}
 
-      <div className="countriesContainer">
-        {filtrados.length > 0
-          ? filtrados.map((c) => <CountryCajita key={c.name.common} pais={c} />)
-          : !loading && (
-              <p className="noResultados">No se han encontrado paises</p>
-            )}
-      </div>
+      <p className="contador">
+        Mostrando {filtrados.length} de {products.length} productos
+      </p>
+
+        <div className="countriesContainer">
+          {filtrados.length > 0
+            ? filtrados.map((p) => (
+                <ProductCajita key={p.id} producto={p} />
+              ))
+            : !loading && (
+                <p className="noResultados">No se han encontrado productos</p>
+              )}
+        </div>
     </div>
   );
 };
