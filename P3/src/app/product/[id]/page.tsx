@@ -3,7 +3,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Country } from "@/types";
 import { useState, useEffect } from "react";
 import "./page.css";
-import { getCountryByName } from "@/lib/api/country";
+import { getCountryByName } from "@/lib/api/product";
 
 const UnPais = () => {
   const router = useRouter();

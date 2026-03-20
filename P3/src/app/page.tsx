@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import "./page.css";
 import { Country } from "@/types";
-import { CountryCajita } from "@/components/country/countryInfo";
-import { getAllCountries } from "@/lib/api/country";
+import { CountryCajita } from "@/components/product/productInfo";
+import { getAllCountries } from "@/lib/api/product";
 
 const Main = () => {
   const [search, setSearch] = useState("");

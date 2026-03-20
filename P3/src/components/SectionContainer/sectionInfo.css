@@ -1,0 +1,8 @@
+/* src/components/SectionContainer/sectionInfo.css */
+
+.sectionContainer {
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #0f0f1a;
+}
