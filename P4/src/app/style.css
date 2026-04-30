@@ -1,0 +1,22 @@
+body {
+  background-color: #2B1810;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+  color: #F5EDD6;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #F5EDD6;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #E8A04A;
+  text-align: center;
+}
+
+p {
+  color: #c9d1d9;
+}
