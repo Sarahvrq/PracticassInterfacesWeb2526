@@ -1,7 +1,6 @@
 body {
-  background-color: #2B1810;
-  background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
-  color: #F5EDD6;
+  background-color: #f5f5f5;
+  color: #333;
   font-family: sans-serif;
   min-height: 100vh;
 }

@@ -1,0 +1,64 @@
+.postCard {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.postCard:hover {
+  border-color: #4f6ef7;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postAuthor {
+  color: #4f6ef7;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.postAuthor:hover {
+  text-decoration: underline;
+}
+
+.postFecha {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.postContenido {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.postActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.actionBtn {
+  background: transparent;
+  border: none;
+  color: #999;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.actionBtn:hover {
+  color: #4f6ef7;
+}

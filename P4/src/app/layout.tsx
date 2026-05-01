@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Header } from "@/components/Header/Header";
+
+//@ts-ignore
 import "./style.css";
 
 const geistSans = Geist({
@@ -13,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Explorador de Países",
-  description: "Aplicación para explorar países del mundo",
+  title: "NebrijaSocial",
+  description: "Clon funcional de Twitter",
 };
 
 export default function RootLayout({
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+         <Header />
         {children}
       </body>
     </html>
